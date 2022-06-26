@@ -136,6 +136,22 @@
 
     // echo Weather::determineTempCondition(25);
 
+    require('user_validator.php');
+
+    $errors = [];
+
+
+    if(isset($_POST)){
+        // validate entries
+        $validation = new UserValidator($_POST);
+
+        $errors = $validation->validateForm();
+        
+
+        //save data to db
+        
+    }
+
 
 
 ?>
@@ -148,8 +164,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=7, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="new-user">
+        <h2>Create new user</h2>
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+            <label>Username</label>
+            <input type="text" name="username" value="<?php echo htmlspecialchars($_POST['username']) ?>">
+            <div class="error">
+                <?php echo $errors['username'] ?? '' ?>
+            </div>
+
+            <label>Email</label>
+            <input type="text" name="email" value="<?php echo htmlspecialchars($_POST['email']) ?>">
+            <div class="error">
+                <?php echo $errors['email'] ?? '' ?>
+            </div>
+
+            <input type="submit" value="submit" name="submit">
+
+
+        </form>
+    </div>
     
 </body>
 </html>
