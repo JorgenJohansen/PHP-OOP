@@ -112,17 +112,30 @@
 
 
 
-    class Weather {
-        public $tempConditions = ['cold','mild','warm'];
+    // class Weather {
+    //     public static $tempConditions = ['cold','mild','warm'];
 
-        public function celsiusToFahrenheit($celsius){
+    //     public static function celsiusToFahrenheit($celsius){
+    //         return $celsius * 9 / 5 + 32;
+    //     }
 
-        }
+    //     public static function determineTempCondition($fahrenheit){
+    //         if($fahrenheit < 40){
+    //             //We can use self or Weather
+    //             return Weather::$tempConditions[0];
+    //         }else if($fahrenheit < 70){
+    //             return Weather::$tempConditions[1];
+    //         }else{
+    //             return Weather::$tempConditions[2];
+    //         }
+    //     }
+    // }
 
-        public function determineTempCondition($fahrenheit){
-            
-        }
-    }
+    // print_r(Weather::$tempConditions);
+    // echo Weather::celsiusToFahrenheit(20);
+
+    // echo Weather::determineTempCondition(25);
+
 
 
 ?>
